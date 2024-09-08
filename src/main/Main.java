@@ -1,15 +1,16 @@
 package main;
 
-/*Создать массив объектов класса согласно заданию.
+/*
+Создать массив объектов класса согласно заданию.
 Инициализацию значений полей осуществить с помощью различных конструкторов.
-В классе предусмотреть геттеры, метод,осуществляющий вывод на экран монитора
-соответствующую информацию об объекте и перегруженные конструкторы.
+ В классе предусмотреть геттеры, метод, осуществляющий вывод на экран монитора
+  соответствующую информацию об объекте и перегруженные конструкторы.
 
 Предусмотреть статические методы подсчёта данных (на основе индивидуального задания).
 Главный класс с методом main должен находиться в другом пакете.
 
 Состав класса Tribe (племя): название, численность. знакомство с огнем.
-Подсчитать общую численность и количество племен знакомых с огнем.
+ Подсчитать общую численность и количество племен знакомых с огнем.
 */
 
 import design_classes.Console;
@@ -17,12 +18,17 @@ import design_classes.Design;
 import design_classes.Developer;
 import design_classes.Message;
 import menu_class.MenuMain;
+import tribe_classes.TribeLinkedList;
+import tribe_classes.TribeNode;
+import tribe_classes.Tribe;
+import tribe_classes.WriterInfo;
 
 public class Main
 {
     public static void main(String[] args)
     {
-        objectCreation();
+        TribeLinkedList linkedList = new TribeLinkedList();
+        objectCreation(linkedList);
         MenuMain menu = new MenuMain();
         while (true)
         {
@@ -31,11 +37,11 @@ public class Main
             switch(menu.getChoice())
             {
                 case '1':
-                    //WriterInfo.printWardsInTable(Wards.wards);
+                    WriterInfo.printAllTribes(linkedList);
                     Message.waitForEnter();
                     break;
                 case '2':
-                    //WriterInfo.printWards(Wards.wards);
+                    linkedList.doTaskOfLab();
                     Message.waitForEnter();
                     break;
                 case '3':
@@ -53,20 +59,17 @@ public class Main
             }
         }
     }
-    public static void objectCreation()
+    public static void objectCreation(TribeLinkedList list)
     {
-        // new Ward(4, "Петрович", 5);
-        //new Ward(20, "Ладкина", 12);
-       // new Ward(10, "Атрощенко", 5);
-        //new Ward(14, "Малькова", 8);
-       // new Ward(43, "Синицына", 34);
-       // new Ward(12, "Ладья", 9);
-        //new Ward(9, "Котов", 3);
-       // new Ward(4, "Пекинский", 2);
-       // new Ward();
-        //new Ward(4, 12);
-        //new Ward(14, 8);
-        //new Ward(13, 7);
-        //new Ward(12, 4);
+        list.addTribeNode(new TribeNode(new Tribe("Гонкары", true)));
+        list.addTribeNode(new TribeNode(new Tribe("Ацтеки", "25000", true)));
+        list.addTribeNode(new TribeNode(new Tribe("Курабура", "456750", false)));
+        list.addTribeNode(new TribeNode(new Tribe()));
+        list.addTribeNode(new TribeNode(new Tribe("Динопары" , false)));
+        list.addTribeNode(new TribeNode(new Tribe("Франки", "500000", true)));
+        list.addTribeNode(new TribeNode(new Tribe()));
+        list.addTribeNode(new TribeNode(new Tribe("Бгуиры", true)));
+        list.addTribeNode(new TribeNode(new Tribe()));
+        list.addTribeNode(new TribeNode(new Tribe("Друзи", "1200", false)));
     }
 }

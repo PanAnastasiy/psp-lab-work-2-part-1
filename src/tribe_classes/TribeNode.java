@@ -8,10 +8,8 @@ public class TribeNode
     {
         this.tribeObject = obj;
     }
-    public TribeNode(Tribe obj, TribeNode next)
+    public Tribe getTribe()
     {
-        this.tribeObject = obj;
-        this.next = next;
+        return tribeObject;
     }
 }
-
