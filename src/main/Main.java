@@ -32,19 +32,21 @@ public class Main
         MenuMain menu = new MenuMain();
         while (true)
         {
-            Console.clear();
             menu.menuOfMain();
             switch(menu.getChoice())
             {
                 case '1':
+                    Console.clear();
                     WriterInfo.printAllTribes(linkedList);
                     Message.waitForEnter();
                     break;
                 case '2':
+                    Console.clear();
                     linkedList.doTaskOfLab();
                     Message.waitForEnter();
                     break;
                 case '3':
+                    Console.clear();
                     Developer.printInfoOfDeveloper();
                     Message.waitForEnter();
                     break;
